@@ -1,4 +1,5 @@
 using System;
+using System.Runtime.InteropServices.Marshalling;
 
 class Program
 {
@@ -6,7 +7,12 @@ class Program
     {
         Word myWord = new Word("Uncle");
         myWord.DisplayWord();
-        Console.WriteLine(myWord.ToString());
+        Console.WriteLine(myWord.GetWordString());
+        myWord.HideWord();
+        if (myWord.IsHidden())
+        {
+            Console.WriteLine($"");
+        }
     }
 
 }
