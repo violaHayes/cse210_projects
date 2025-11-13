@@ -11,9 +11,35 @@ private bool _isHidden;
         _word = word;
         _isHidden = false;
     }
+  
+    public bool IsHidden()
+    {
+        return _isHidden;
+
+    }
+    public void HideWord()
+    {
+        _isHidden = true;
+
+    }
+    public string GetWordString()
+    {
+        if (_isHidden)
+        {
+            return new string('_', _word.Length);
+
+        }
+        else
+        {
+            return _word;
+        }
+    }
     public void DisplayWord()
     {
         Console.WriteLine(_word);
     }
+
+    
+
 
 }

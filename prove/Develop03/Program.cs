@@ -6,5 +6,7 @@ class Program
     {
         Word myWord = new Word("Uncle");
         myWord.DisplayWord();
+        Console.WriteLine(myWord.ToString());
     }
+
 }
