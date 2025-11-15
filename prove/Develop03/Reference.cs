@@ -12,7 +12,25 @@ class Reference
         _startVerse = verse;
         _endVerse = 0;
     }
-    public Reference
+    public Reference(string book, int chapter, int startVerse, int endVerse)
+    {
+         _book = book;
+        _chapter = chapter;
+        _startVerse = startVerse;
+        _endVerse = endVerse;       
+    }
+
+    public void Display()
+    {
+        if (_endVerse == 0)
+        {
+           Console.WriteLine($"{_book} {_chapter}:{_startVerse}");
+        }
+        else
+        {
+        Console.WriteLine($"{_book} {_chapter}:{_startVerse}-{_endVerse}");
+        }
+    }
 
 
 }
