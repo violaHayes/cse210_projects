@@ -12,6 +12,7 @@ class Reference
         _startVerse = verse;
         _endVerse = 0;
     }
+    public Reference
 
 
 }

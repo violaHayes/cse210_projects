@@ -34,10 +34,7 @@ private bool _isHidden;
             return _word;
         }
     }
-    public void DisplayWord()
-    {
-        Console.WriteLine(_word);
-    }
+  
 
     
 
