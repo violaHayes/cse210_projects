@@ -1,20 +1,44 @@
 using System;
+using System.Threading;
 
 class Program
 {
     static void Main(string[] args)
     {
-        Console.Write("-");
+        Menu mainMenu = new Menu();
+        int choice;
 
-        Thread.Sleep(500);
+        do
+        {
+            choice = mainMenu.ProcessMenu();
+            Activity currentActivity = null;
 
-        Console.Write("\b \b"); // Erase the + character
-        Console.Write("?"); // Replace it with the - character
-        Console.Write("\b \b"); // Erase the + character
-        Console.Write("^"); 
-        Console.Write("\b \b"); // Erase the + character
-        Console.Write("*"); 
+            switch (choice)
+            {
+                case 1: 
+                    currentActivity = new BreathingActivity();
+                    break;
+                case 2:
+                    currentActivity = new ReflectionActivity();
+                    break;
+                case 3: 
+                    currentActivity = new ListingActivity(); 
+                    break;
+                case 4:
+                    Console.Clear();
+                    Console.WriteLine("Thank you for using the Mindfulness Program. Goodbye!");
+                    break;
+                default:
+                    Console.WriteLine("Invalid option. Returning to menu");
+                    Thread.Sleep(1500);
+                    break;
+            }
 
-        Console.WriteLine("Hello Develop04 World!");
+            if (currentActivity != null)
+            {
+                currentActivity.RunActivity();
+            } 
+        }
+        while (choice != 4);
     }
 }

@@ -1,6 +1,6 @@
 class Menu
 {
-    public string[] _menuStrings =
+    private string[] _menuStrings =
     {
         "Menu Options:",
         " 1. Start Breathing Activiy",
@@ -18,8 +18,7 @@ class Menu
             {
                 Console.WriteLine(meanuItem);
             }
-            userSelection = int.Parse(Console.ReadLine());
-        }
+            bool success = int.TryParse(Console.ReadLine(), out userSelection);        }
         while (userSelection < 1 || userSelection > 4);
         return userSelection;
 

@@ -1,52 +1,44 @@
-// using System;
+using System;
+using System.Threading;
 
-// class Program
-// {
-//     static void Main(string[] args)
-//     {
-//         Console.WriteLine("Hello Sandbox World!");
-//         string firstName;
-//         string lastName;
-
-//         Console.Write("Please enter your first name: ");
-//         firstName = Console.ReadLine();
-
-//         Console.Write("Please enter your last name: ");
-//         lastName = Console.ReadLine();
-
-//         Console.WriteLine($"Your name is: {lastName}, {firstName} {lastName}");
-//     }
-// }
 class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("ello");
+        Menu mainMenu = new Menu();
+        int choice;
 
-        string animationString = "\\|?-";
-        int sleepTime = 250;
-        int index = 0;
-        int duration = 10;
-        DateTime currentTime = DateTime.Now;
-        DateTime endTime = currentTime.AddSeconds(duration);
-
-        while(DateTime.Now < endTime)
+        do
         {
-            Console.Write(animationString[index++ % animationString.Length]);
-            Thread.Sleep(sleepTime);
-            Console.Write("\b");
+            choice = mainMenu.ProcessMenu();
+            Activity currentActivity = null;
 
-        }
-        int count = duration;
-           while(DateTime.Now < endTime)
-        {
-            Console.Write(count--);            
-            Thread.Sleep(1000);
-            if (count >= 9)
-                Console.Write("\b\b \b\b");
-                else
-            Console.Write("\b");
+            switch (choice)
+            {
+                case 1: 
+                    currentActivity = new BreathingActivity();
+                    break;
+                case 2:
+                    currentActivity = new ReflectionActivity();
+                    break;
+                case 3: 
+                    currentActivity = new ListingActivity(); 
+                    break;
+                case 4:
+                    Console.Clear();
+                    Console.WriteLine("Thank you for using the Mindfulness Program. Goodbye!");
+                    break;
+                default:
+                    Console.WriteLine("Invalid option. Returning to menu");
+                    Thread.Sleep(1500);
+                    break;
+            }
 
+            if (currentActivity != null)
+            {
+                currentActivity.RunActivity();
+            } 
         }
+        while (choice != 4);
     }
 }
