@@ -5,6 +5,7 @@ class Goal
     private int _numberOfPoints;
     private bool _status;
     private string _goalType;
+
     public Goal(string name, string description)
     {
         _name = name;
@@ -12,6 +13,10 @@ class Goal
         _numberOfPoints = 0;
         _status = false;
         _goalType = "";
+    }
+    public string GetName(string name, string desciption, int points)
+    {
+        
     }
 
 public virtual string GetConsoleString()
