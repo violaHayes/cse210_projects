@@ -1,10 +1,15 @@
-class Goal
+public abstract class Goal
 {
-    private string _name;
-    private string _description;
-    private int _numberOfPoints;
-    private bool _status;
-    private string _goalType;
+    protected string _name;
+    protected string _description;
+    protected int _numberOfPoints;
+    protected bool _status;
+    protected string _goalType;
+
+    public abstract int RecordEvent();
+    public abstract bool IsComplete();
+    public abstract string GetDetailString();
+
 
     public Goal(string name, string description)
     {
@@ -14,10 +19,11 @@ class Goal
         _status = false;
         _goalType = "";
     }
-    public string GetName(string name, string desciption, int points)
+    public string GetName()
     {
-        
+        return _name;
     }
+
 
 public virtual string GetConsoleString()
     {
