@@ -1,11 +1,11 @@
 public class Simple: Goal
 {
     private bool _isComplete;
-    public Simple(string name, string description, int points) : base(name, description, points)
+    public Simple(string name, string description, int points) : base(name, description)
     {
         _isComplete = false;
     }
-     public Simple(string name, string description, int points, bool isComplete) : base(name, description, points)
+     public Simple(string name, string description, int points, bool isComplete) : base(name, description)
     {
         _isComplete = isComplete;
     }
