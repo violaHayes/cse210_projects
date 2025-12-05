@@ -1,32 +1,26 @@
+using System;
+
 public abstract class Goal
 {
-    protected string _name;
+    protected string _shortName; 
     protected string _description;
-    protected int _numberOfPoints;
-    protected bool _status;
-    protected string _goalType;
+    protected int _points;      
 
+    public Goal(string name, string description, int points)
+    {
+        _shortName = name;
+        _description = description;
+        _points = points;
+    }
+    
     public abstract int RecordEvent();
     public abstract bool IsComplete();
     public abstract string GetDetailString();
+    
+    public abstract string GetStringRepresentation(); 
 
-
-    public Goal(string name, string description)
+    public string GetShortName()
     {
-        _name = name;
-        _description = description;
-        _numberOfPoints = 0;
-        _status = false;
-        _goalType = "";
+        return _shortName;
     }
-    public string GetName()
-    {
-        return _name;
-    }
-
-
-public virtual string GetConsoleString()
-    {
-    return $"Name: {_name}, Description: {_description}, Points: {_numberOfPoints}, Status: {_status}";
-}
 }
