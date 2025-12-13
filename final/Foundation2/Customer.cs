@@ -1,6 +1,26 @@
-class Customer
+public class Customer
 {
-     private string _address;
-     private string _name; 
-     private bool _inUSA;
+    private string _name;
+    private Address _address;
+
+    public Customer(string name, Address address)
+    {
+        _name = name;
+        _address = address;
+    }
+
+    public string Name
+    {
+        get { return _name; }
+    }
+
+    public Address Address
+    {
+        get { return _address; }
+    }
+
+    public bool LivesInUSA()
+    {
+        return _address.IsInUSA();
+    }
 }
