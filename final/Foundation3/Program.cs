@@ -4,6 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
+
+        
         Address address1 = new Address("100 College Ave", "Rexburg", "ID", "USA");
         Address address2 = new Address("50 Event Rd", "Boise", "ID", "USA");
         Address address3 = new Address("1 Park Way", "Salt Lake City", "UT", "USA");
@@ -33,7 +35,7 @@ class Program
             "June 20, 2025",
             "3:00 PM",
             address3,
-            "Sunny, 75°F"
+            "Sunny, 75 F"
         );
 
         DisplayEvent(lecture);
@@ -53,6 +55,5 @@ class Program
 
         Console.WriteLine("SHORT DESCRIPTION");
         Console.WriteLine(ev.GetShortDescription());
-        Console.WriteLine("\n---------------------------\n");
     }
 }
